@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Wellness Plan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://dummyimage.com/1920x1080/dee2e6/6c757d.jpg&text=.') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="col-lg-8 mx-auto p-3 py-md-5">
+        <div class="container">
+            <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+                <h1 class="fs-4">Your Wellness Plan</h1>
+              </header>
+            {% autoescape off %}
+                {{ wellness_plan }}
+            {% endautoescape %}
+        </div>
+    </div>
+</body>
+</html>

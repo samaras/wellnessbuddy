@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Wellness Scores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://dummyimage.com/1920x1080/dee2e6/6c757d.jpg&text=.') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="col-lg-8 mx-auto p-3 py-md-5">
+    <div class="container">
+        
+        <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+              <h1 class="fs-4">Rate Your Wellness</h1>
+            </a>
+        </header>
+        <p>Give each area a ranking from 1-10, with 1 being the poorest rank and 10 being the best.</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Your name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+            </div>
+            {% for aspect in aspects %}
+                <div class="form-group">
+                    <label for="{{ aspect }}">{{ aspect|capfirst }}</label>
+                    <input type="number" class="form-control" id="{{ aspect }}" name="{{ aspect }}" min="1" max="10" required>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>
